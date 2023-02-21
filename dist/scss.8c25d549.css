@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  max-height: 900px;
+}
+
+#player {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #060a3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#player .header {
+  order: 1;
+  height: 20vh;
+  text-align: center;
+}
+#player .header h1 {
+  color: #fff;
+  font-size: 20px;
+  padding-top: 20px;
+}
+#player .header p {
+  color: #868aaf;
+  font-size: 12px;
+}
+#player .header .balls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+#player .header .balls span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(219, 59, 170, 0.3);
+  margin: 0 4px;
+}
+#player .header .balls span.current {
+  width: 8px;
+  height: 8px;
+  background: #db3baa;
+}
+#player .panels {
+  order: 2;
+  max-width: 100vw;
+  display: flex;
+  transition: transfrom 0.3s;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+#player .panels.panel1 {
+  transform: translateX(0vw);
+}
+#player .panels.panel2 {
+  transform: translateX(-100vw);
+}
+#player .panels .panel-effect {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#player .panels .panel-effect .effect {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+#player .panels .panel-effect .effect > div {
+  background-size: contain;
+  position: absolute;
+}
+#player .panels .panel-effect .effect .effect-1 {
+  background: url(/effect-no-move.e6a51026.svg) 0 0 no-repeat;
+  width: 70vw;
+  height: 70vw;
+  animation: rotate 20s linear infinite;
+}
+#player .panels .panel-effect .effect .effect-2 {
+  background: url(/effect-move1.8d0ce205.svg) 0 0 no-repeat;
+  width: 60vw;
+  height: 60vw;
+  animation: rotate 10s linear infinite reverse;
+}
+#player .panels .panel-effect .effect .effect-3 {
+  background: url(/effect-move2.143040a0.svg) 0 0 no-repeat;
+  width: 24vw;
+  height: 24vw;
+  animation: rotate 10s linear infinite;
+}
+#player .panels .panel-effect .lyrics {
+  text-align: center;
+}
+#player .panels .panel-effect .lyrics p {
+  font-size: 13px;
+  color: #868aaf;
+  margin-top: 8px;
+}
+#player .panels .panel-effect .lyrics p.active {
+  color: #868aaf;
+}
+#player .panels .panel-effect .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+#player .panels .panel-effect .buttons svg {
+  width: 24px;
+  height: 24px;
+  margin: 0 28px;
+}
+#player .panels .panel-lyrics {
+  width: 100vw;
+  height: 65vh;
+  text-align: center;
+  line-height: 2;
+  overflow: scroll;
+  font-size: 15px;
+}
+#player .panels .panel-lyrics .container {
+  transition: all 0.3s;
+  transform: translateY(-100px);
+  font-size: 15px;
+}
+#player .panels .panel-lyrics .container p {
+  color: #fff;
+}
+#player .panels .panel-lyrics .container p.current {
+  color: #db3baa;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.footer {
+  height: 30vh;
+  order: 3;
+}
+.footer .bar-area {
+  color: #868aaf;
+  font-size: 10px;
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  text-align: center;
+  margin-top: 28px;
+}
+.footer .bar-area .time-start {
+  order: 1;
+  width: 40px;
+}
+.footer .bar-area .time-end {
+  order: 3;
+  width: 40px;
+}
+.footer .bar-area .bar {
+  background: #0025f1;
+  order: 2;
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+}
+.footer .bar-area .bar .process {
+  width: 0%;
+  height: 100%;
+  background: #db3baa;
+  position: relative;
+}
+.footer .bar-area .bar .process::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  top: -5px;
+  width: 13px;
+  height: 13px;
+  background: url(/progress.798a5c76.svg) 0 0 no-repeat;
+  background-size: contain;
+  right: 0;
+}
+.footer .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 30vw;
+}
+.footer .actions svg {
+  height: 28px;
+  width: 28px;
+}
+.footer .actions svg.btn-play-pause {
+  width: 50px;
+  height: 50px;
+}
+
+/*# sourceMappingURL=/scss.8c25d549.css.map */

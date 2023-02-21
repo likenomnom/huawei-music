@@ -1,0 +1,250 @@
+$backgroundColor: #060a3d;
+$color: #fff;
+$color1: #868aaf;
+$color2: #db3baa;
+$color2-dark: darken($color2, 10%);
+$color2-darker: rgba($color2, 30%);
+$color3: #0025f1;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  max-height: 900px;
+}
+
+#player {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: $backgroundColor;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .header {
+    order: 1;
+    height:20vh;
+    text-align: center;
+
+    h1 {
+      color: $color;
+      font-size: 20px;
+      padding-top: 20px;
+    }
+
+    p {
+      color: $color1;
+      font-size: 12px;
+    }
+    .balls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+
+      span {
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $color2-darker;
+        margin: 0 4px;
+
+        &.current {
+          width: 8px;
+          height: 8px;
+          background: $color2;
+        }
+      }
+    }
+  }
+  .panels {
+    order: 2;
+    max-width: 100vw;
+    display: flex;
+    transition: transfrom 0.3s;
+    align-items: center;
+    // ease 平滑
+    transition: transform .3s ease;
+    // .panel1, .panel2 {width: 0vw;}
+    &.panel1{
+      transform: translateX(0vw);
+    }
+    &.panel2{
+      transform: translateX(-100vw);
+    }
+
+    .panel-effect {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .effect {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+
+        >div {
+          background-size: contain;
+          position: absolute;
+        }
+
+        .effect-1 {
+          background: url(../svg/effect-no-move.svg)0 0 no-repeat;
+          width: 70vw;
+          height: 70vw;
+          animation: rotate 20s linear infinite;
+        }
+
+        .effect-2 {
+          background: url(../svg/effect-move1.svg)0 0 no-repeat;
+          width: 60vw;
+          height: 60vw;
+          animation: rotate 10s linear infinite reverse;
+        }
+
+        .effect-3 {
+          background: url(../svg/effect-move2.svg)0 0 no-repeat;
+          width: 24vw;
+          height: 24vw;
+          animation: rotate 10s linear infinite;
+        }
+      }
+
+      .lyrics {
+        text-align: center;
+
+        p {
+          font-size: 13px;
+          color: $color1;
+          margin-top: 8px;
+
+          &.active {
+            color: $color1;
+          }
+        }
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+    
+        svg {
+          width: 24px;
+          height: 24px;
+          margin: 0 28px;
+        }
+      }
+    }
+    .panel-lyrics {
+      width: 100vw;
+      height: 65vh;
+      text-align: center;
+      line-height: 2;
+      overflow: scroll;
+      font-size: 15px;
+    .container{
+      transition: all .3s;
+      transform: translateY(-100px);
+      font-size: 15px;
+      p{
+        color: $color;
+        &.current{
+          color: #db3baa;
+        }
+      }
+    }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.footer{
+  height:30vh;
+  order: 3;
+  .bar-area {
+    color: $color1;
+    font-size: 10px;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+    margin-top: 28px;
+  
+    .time-start {
+      order: 1;
+      width: 40px;
+    }
+  
+    .time-end {
+      order: 3;
+      width: 40px;
+    }
+  
+    .bar {
+      background: $color3;
+      order: 2;
+      flex: 1;
+      height: 4px;
+      border-radius: 2px;
+  
+      .process {
+        width: 0%;
+        height: 100%;
+        background: $color2;
+        position: relative;
+
+        &::after{
+          content: '';
+          position: absolute;
+          display: block;
+          border-radius: 50%;
+          top: -5px;
+          width: 13px;
+          height: 13px;
+          background: url(../svg/progress.svg) 0 0 no-repeat;
+          background-size: contain;
+          right: 0;
+        }
+  
+      }
+      
+    }
+  
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 30vw;
+  
+    svg {
+      height: 28px;
+      width: 28px;
+  
+  
+    }
+  
+    svg.btn-play-pause {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
